@@ -33,7 +33,7 @@ then
   ip tuntap add mode tun srs_spgw_sgi
   ifconfig srs_spgw_sgi 172.16.0.1/24
   screen -S EPC -dm bash -c "srsepc | ts '[%Y-%m-%d %H:%M:%.S]' > srsEPC.log"
-  screen -S eNB -dm bash -c "srsenb ${ZMQ_ARGS_IQ} | ts '[%Y-%m-%d %H:%M:%.S]' > srsEPC.log"
+  screen -S eNB -dm bash -c "srsenb ${ZMQ_ARGS_IQ} | ts '[%Y-%m-%d %H:%M:%.S]' > srsENB.log"
  
 elif [ $MODE == "IQ_DIRECT" ]
 then
