@@ -24,7 +24,7 @@ if [ $MODE == "TESTBED" ]
   ip tuntap add mode tun srs_spgw_sgi
   ifconfig srs_spgw_sgi 172.16.0.1/24
   screen -S EPC -dm bash -c "srsepc | ts '[%Y-%m-%d %H:%M:%.S]' > srsEPC.log" 
-  screen -S eNB -dm bash -c "srsenb --rf.tx_gain=$TX_GAIN --rf.rx_gain=$RX_GAIN --rf.dl_earfcn=$EARFCN --enb.n_prb=$N_PRB | ts '[%Y-%m-%d %H:%M:%.S]' > srsENB.log" 
+  screen -S eNB -dm bash -c "printf 't\n' | srsenb --rf.tx_gain=$TX_GAIN --rf.rx_gain=$RX_GAIN --rf.dl_earfcn=$EARFCN --enb.n_prb=$N_PRB | ts '[%Y-%m-%d %H:%M:%.S]' > srsENB.log" 
   
 elif [ $MODE == "IQ_EMULATION" ]
 then
